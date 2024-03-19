@@ -1,32 +1,41 @@
-#include<stdio.h>
+#include <stdio.h>
 
-int make_number_ones(int);
+int make_number(int n);
 
 int main() {
-	int n = 3;
-	int i;
-	int multiple_ones;
+	int n ;
+	int i ;
 
-	i=0;
+	n = 3;
+	i = 1;
+
 	while(1) {
-		i++;
-		multiple_ones = make_number_ones(i);
-		
-		if( multiple_ones % n == 0 ) {
+		int number_ones;
+
+		number_ones = make_number(i);
+
+		if( number_ones <= 0 ) {
+			printf("Overflow\n");
+			return 0;
+		}
+
+		if( number_ones % n == 0 ) {
 			printf("%d\n", i);
 			return 0;
 		}
+		i++;
 	}
-	//printf
 	return 0;
 }
 
-int make_number_ones(int n) {
-	int ret = 0;
+int make_number(int n) {
+	int ret;
 	int i;
 
+	ret = 0;
+
 	for(i=0; i<n ; i++)
-		ret = ret*10 + 1;
+		ret = ret * 10 + 1;
 
 	return ret;
 }

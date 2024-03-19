@@ -1,31 +1,32 @@
-#include <stdio.h>
+#include<stdio.h>
 
-int main() {
-	int n1, n2, carry_count, carry;
+int main(){
+	int n1, n2;
+	int carry_count;
+	int carry;
 
 	n1 = 123;
 	n2 = 999;
 	carry_count = 0;
 	carry = 0;
 
-	//while( !(n1==0 && n2==0) )
 	while( n1 != 0 || n2 != 0 ) {
 		int remainder_n1;
 		int remainder_n2;
-		int sum;
 
 		remainder_n1 = n1 % 10;
 		remainder_n2 = n2 % 10;
 
-		sum = remainder_n1 + remainder_n2 + carry;
-
-		if( sum >= 10 ){
-			carry_count++;
+		if( remainder_n1 + remainder_n2 + carry > 9 ) {
+			carry_count = carry_count + 1;
 			carry = 1;
-		} else {
+		}
+		else {
 			carry = 0;
 		}
-		
+
+		//printf("%d %d %d %d\n", remainder_n1, remainder_n2
+				//carry_count, carry);
 		n1 = n1 / 10;
 		n2 = n2 / 10;
 	}
