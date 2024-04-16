@@ -18,17 +18,16 @@ int main() {
 }
 
 void pick(int item[], int n, int bucket[], int m, int toPick, int target_money) {
-	int i, lastIndex, smallest;
+	int i, lastIndex, smallest; 
+	int sum = 0;
+
 	if(toPick == 0) {
-		int sum = 0;
 		for(i=0; i<m; i++) 
 			sum = sum + item[bucket[i]];
 
 		if(sum == target_money) {
-			for(i=0; i<m; i++) {
-				if(item[bucket[i]] != 0)
-					printf("%d ", item[bucket[i]]);
-                		}
+			for(i=0; i<m; i++) { 
+				printf("%d ", item[bucket[i]]);
 			printf("\n");
 		}
 		return;
@@ -39,6 +38,19 @@ void pick(int item[], int n, int bucket[], int m, int toPick, int target_money) 
 		smallest = 0;
 	else
 		smallest = bucket[lastIndex];
+
+	for(i=0; i<=lastIndex; i++) 
+		sum = sum + item[bucket[i]];
+
+	if(sum == target_money) { 
+		for(i=0; i<=lastIndex; i++) 
+			printf("%d ", item[bucket[i]]);
+		printf("\n");
+		return;
+	}
+	else if(sum > target_money) { 
+		return;
+	}
 
 	for(i=smallest; i<n ; i++) {
 		bucket[lastIndex+1] = i;
