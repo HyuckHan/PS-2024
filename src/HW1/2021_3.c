@@ -17,7 +17,7 @@ int main() {
 			if (ladder[i][curr_pos] == '1') 
 				curr_pos++;
 		}
-		else if(curr_pos == M) {
+		else if(curr_pos == (M-1)) {
 			if(ladder[i][curr_pos-1] == '1')
 				curr_pos--;
 		}
