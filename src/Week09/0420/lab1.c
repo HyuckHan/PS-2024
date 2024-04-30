@@ -3,26 +3,30 @@
 #include<time.h>
 
 int partition(int *A, int p, int r) {
-	int i,j,t;
+	int i, j;
 	int pivot;
+	int t;
 
+	i = p - 1;
+	j = p;
+	
+	//t = <- random int from (p,r)
+	//swap A[t] <--> A[r]
 	pivot = A[r];
-	i = p-1;
 
 	for(j=p; j<r; j++) {
 		if(A[j] < pivot) {
 			i++;
-			//swap A[i] <-> A[j]
+			//swap A[i] <--> A[j]
 			t = A[i];
 			A[i] = A[j];
 			A[j] = t;
 		}
 	}
-
-	i++;
-	//swap A[i] <-> A[r]
-	t = A[i];
-	A[i] = A[r];
+	i++; 
+	//swap A[i] <--> A[r] 
+	t = A[i]; 
+	A[i] = A[r]; 
 	A[r] = t;
 
 	return i;
