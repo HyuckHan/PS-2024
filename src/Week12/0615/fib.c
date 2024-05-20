@@ -9,7 +9,8 @@ long fib(int n) {
 
 int main() {
 	int n;
-	scanf("%d", &n);
+	//scanf("%d", &n);
+	n = 44;
 
 	printf("%ld\n",fib(n));
 

@@ -28,16 +28,26 @@ long fib2(int n, long *m) {
 int main() {
 	int n, i;
 	long *m;
-	scanf("%d", &n);
+	//scanf("%d", &n);
+	n = 44;
 	
 	m = (long*) malloc(sizeof(long)*(n+1));
 	for(i=0; i<n+1; i++)
 		m[i] = 0;
 	printf("%ld\n",fib(n,m));
 
-	for(i=0; i<n+1; i++)
+	/*for(i=0; i<n+1; i++)
 		m[i] = 0;
-	printf("%ld\n",fib2(n,m));
+	printf("%ld\n",fib2(n,m));*/
 
 	return 0;
 }
+
+
+
+
+
+
+
+
+
