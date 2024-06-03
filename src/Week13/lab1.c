@@ -36,14 +36,15 @@ int main(void)
 {
 	char code[26]; // code[0]부터 ‘A’의 암호화문자를 넣음
 	int distance;
-	char sentence[80], encodedSentence[80];
+	char sentence[80] = {0};
+	char encodedSentence[80] = {0};
 
 	printf("Enter a distance for encoding:");
 	scanf("%d", &distance);
 
 	makeCode(code, distance);
 	printCode(code);
-
+	gets
 	//fflush(stdin);
 	fgets(sentence, 80, stdin);
 	printf("Enter a sentence to encode:");
@@ -51,4 +52,5 @@ int main(void)
 	printf("%s", sentence);
 	encode(code, sentence, encodedSentence);
 	printf("%s", encodedSentence);
+	//puts(encodedSentence);
 }
