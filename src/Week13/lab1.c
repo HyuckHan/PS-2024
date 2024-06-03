@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-
 void makeCode(char code[], int dist){
 	int i = 0;
 	for(i=0; i<26; i++){
@@ -20,8 +19,18 @@ void printCode(char code[]){
 	printf("\n");
 }
 
-/*void encode(char code[], char s[], char e[]){
-}*/
+void encode(char code[], char s[], char e[]){
+	int i;
+
+	for(i=0; s[i]!='\0'; i++){
+		if(s[i] >= 'A' && s[i] <= 'Z') {
+			int idx = s[i] - 'A';
+			e[i] = code[idx];
+		}
+		else
+			e[i] = s[i];
+	}
+}
 
 int main(void)
 {
@@ -34,10 +43,12 @@ int main(void)
 
 	makeCode(code, distance);
 	printCode(code);
-	/*
-	fflush(stdin);
+
+	//fflush(stdin);
+	fgets(sentence, 80, stdin);
 	printf("Enter a sentence to encode:");
-	gets(sentence);
-	printf("original sentence:\t");
-	puts(sentence);*/
+	fgets(sentence, 80, stdin);
+	printf("%s", sentence);
+	encode(code, sentence, encodedSentence);
+	printf("%s", encodedSentence);
 }
