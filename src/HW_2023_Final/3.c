@@ -28,5 +28,7 @@ int main() {
 		M[i] = 0;
 
 	printf("%ld\n", k_bonacci(n, k, M));
+
+	free(M);
 	return 0;
 }

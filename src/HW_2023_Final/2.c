@@ -24,5 +24,6 @@ int main() {
 		M[i] = 0;
 
 	printf("%ld\n", t_bonacci(n, M));
+	free(M);
 	return 0;
 }
